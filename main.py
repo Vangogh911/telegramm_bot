@@ -27,7 +27,7 @@ async def download_yt_video(url, message, bot):
     yt = YouTube(url)
     stream = yt.streams.filter(file_extension="mp4")
     stream.get_highest_resolution().download(f'{message.chat.id}', 'Video')
-    await bot.send_video(message.chat.id, open(f"{message.chat.id}/Video", 'rb'), caption='Всегда к вашим услугам')
+    await bot.send_video(message.chat.id, open(f"{message.chat.id}/Video", 'rb'))
     os.remove(f"{message.chat.id}/Video")
 
 
